@@ -1,14 +1,32 @@
 import './App.css';
 
-import NewUser from './components/NewUser'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+
+//------COMPONENTS-------/
+
+import Home from './components/Home'
 import Login from './components/Login'
 
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+//------USERCONTEXT-------//
+import {UserStorage} from './UserContext'
 
 function App() {
   return (
     <div className="App">
-      <NewUser/>
-      <Login/>
+      <BrowserRouter>
+        <UserStorage>
+          <Header/>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/login"component={Login}/>
+          </Switch>
+          <Footer/>
+        </UserStorage>
+        
+      </BrowserRouter>
     </div>
   );
 }

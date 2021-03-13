@@ -13,11 +13,13 @@ export default function Login() {
       username: userName,
       password
     })
-    const token = newSession.data.token
-    setToken(token)
+    const getToken = newSession.data.token
+    await setToken(getToken)
+    localStorage.setItem('token', token)
+    console.log(token)
   }
 
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <h1>User Login</h1>
