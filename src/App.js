@@ -10,6 +10,9 @@ import Login from './components/Login'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
+//-------PRIVATE ROUTE-----//
+//import PrivateRoute from './PrivateRoute'
+
 //------USERCONTEXT-------//
 import {UserStorage} from './UserContext'
 

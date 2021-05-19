@@ -9,14 +9,18 @@ import {UserContext} from '../../UserContext'
 import './style.css'
 
 export default function Header() {
-  const {data} = useContext(UserContext)
+  const {data, userLogout} = useContext(UserContext)
   return (
     <header className="header">
       <nav className="nav container">
         <Link className="logo" to='/' aria-label = "Dogs - Home">
           <img src={Dogs} alt=""/>
           </Link>
-        {data ? <Link className="login" to='/conta'>{data.username}</Link> : <Link className="login" to='/login'>Login/Criar</Link>}
+        {data ? <Link className="login" to='/login'>{data.username}         
+                  <button onClick= {userLogout}>Sair</button>
+                </Link> : <Link className="login" to='/login'>
+                Login/Criar
+                </Link>}
       </nav>
     </header>
   )
