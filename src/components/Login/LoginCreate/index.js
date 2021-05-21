@@ -5,22 +5,25 @@ import useForm from '../../../Hooks/useForm'
 
 import {api} from '../../../services/api'
 
+
 export default function LoginCreate() {
   const username = useForm();
   const email = useForm('email')
   const password = useForm()
 
+
  async function handleSubmit(event){
     event.preventDefault()
   
-      api.post('/api/user',{
+      const response = await api.post('/api/user',{
         username:username.value,
         email:email.value,
         password:password.value,    
     })
-   
 
-    
+
+    console.log(response.data)
+       
   }
   return (
     <section className="animeLeft">
